@@ -234,6 +234,10 @@ app.use((err, req, res, next) => {
   });
 });
 
+app.get("/", (req, res) => {
+  console.log("yess");
+});
+
 
 app.listen(8080, () => {
   console.log("Server running on port 8080");
