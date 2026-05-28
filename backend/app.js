@@ -108,6 +108,10 @@ app.post(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("Backend Running");
+});
+
 /* Edit Form */
 app.patch(
   "/edit/:id",
