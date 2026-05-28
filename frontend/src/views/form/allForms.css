@@ -1,0 +1,337 @@
+.allFormsPage {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 6rem 1.5rem;
+
+    overflow: hidden;
+}
+
+/* ───────────────── Background Glow ───────────────── */
+
+.formsGlow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    pointer-events: none;
+}
+
+.formsGlowOne {
+    width: 450px;
+    height: 450px;
+
+    background: rgba(168, 85, 247, 0.14);
+
+    top: -10%;
+    left: -10%;
+
+    animation: floatGlow 12s ease-in-out infinite;
+}
+
+.formsGlowTwo {
+    width: 500px;
+    height: 500px;
+
+    background: rgba(6, 182, 212, 0.12);
+
+    bottom: -10%;
+    right: -10%;
+
+    animation: floatGlow 16s ease-in-out infinite;
+}
+
+@keyframes floatGlow {
+
+    0%,100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-35px) scale(1.08);
+    }
+}
+
+/* ───────────────── Hero ───────────────── */
+
+.formsHero {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    max-width: 900px;
+
+    margin: auto auto 4rem;
+}
+
+.formsTag {
+    display: inline-flex;
+
+    padding: 0.55rem 1rem;
+
+    border-radius: 999px;
+
+    margin-bottom: 1.5rem;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: var(--cyan-neon);
+
+    font-size: 0.82rem;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    backdrop-filter: blur(20px);
+}
+
+.formsTitle {
+    font-family: var(--font-display);
+
+    font-size: clamp(3rem, 7vw, 5.5rem);
+
+    line-height: 1;
+
+    letter-spacing: -0.05em;
+
+    margin-bottom: 1.5rem;
+}
+
+.formsSubtitle {
+    color: var(--text-muted);
+
+    font-size: 1.08rem;
+
+    line-height: 1.9;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+/* ───────────────── Stats ───────────────── */
+
+.formsStats {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 1.2rem;
+
+    margin-bottom: 3rem;
+}
+
+.statCard {
+    padding: 1.8rem;
+
+    text-align: center;
+
+    transition:
+        transform 0.4s var(--ease-expo),
+        border-color 0.4s var(--ease-expo);
+}
+
+.statCard:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(168,85,247,0.25);
+}
+
+.statCard h2 {
+    font-family: var(--font-display);
+
+    font-size: 2.4rem;
+
+    margin-bottom: 0.7rem;
+}
+
+.statCard p {
+    color: var(--text-muted);
+
+    letter-spacing: 0.04em;
+}
+
+/* ───────────────── Cards Grid ───────────────── */
+
+.cardContainer {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 1.5rem;
+}
+
+/* ───────────────── Form Card ───────────────── */
+
+.formCard {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 1.6rem;
+
+    transition:
+        transform 0.45s var(--ease-expo),
+        border-color 0.45s var(--ease-expo),
+        box-shadow 0.45s var(--ease-expo);
+}
+
+.formCard:hover {
+    transform:
+        translateY(-8px)
+        rotateX(2deg);
+
+    border-color: rgba(168,85,247,0.22);
+
+    box-shadow:
+        0 25px 60px rgba(124,58,237,0.14);
+}
+
+.cardGlow {
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    background: rgba(124,58,237,0.12);
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    top: -80px;
+    right: -80px;
+
+    pointer-events: none;
+}
+
+/* ───────────────── Card Top ───────────────── */
+
+.cardTop {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.avatarCircle {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,58,237,0.95),
+            rgba(6,182,212,0.88)
+        );
+
+    color: white;
+
+    font-family: var(--font-display);
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    box-shadow:
+        0 0 25px rgba(124,58,237,0.35);
+}
+
+.cardTop h2 {
+    font-size: 1.35rem;
+
+    margin-bottom: 0.4rem;
+
+    word-break: break-word;
+}
+
+.emailText {
+    color: var(--text-muted);
+
+    font-size: 0.95rem;
+
+    word-break: break-word;
+}
+
+/* ───────────────── Message ───────────────── */
+
+.messageBox {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 1.5rem;
+}
+
+.messageLabel {
+    color: var(--cyan-neon);
+
+    font-size: 0.82rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+
+    margin-bottom: 1rem;
+}
+
+.messageContent {
+    color: rgba(255,255,255,0.82);
+
+    line-height: 1.9;
+
+    font-size: 0.98rem;
+
+    word-break: break-word;
+}
+
+/* ───────────────── Responsive ───────────────── */
+
+@media (max-width: 768px) {
+
+    .allFormsPage {
+        padding: 5rem 1rem;
+    }
+
+    .formsTitle {
+        font-size: 3rem;
+    }
+
+    .formsSubtitle {
+        font-size: 1rem;
+    }
+
+    .cardContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .statCard h2 {
+        font-size: 2rem;
+    }
+
+    .formCard {
+        padding: 1.3rem;
+    }
+}

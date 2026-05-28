@@ -1,0 +1,210 @@
+/* ───────────────── App Root ───────────────── */
+
+.appRoot {
+    position: relative;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(124,58,237,0.08),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(6,182,212,0.08),
+            transparent 35%
+        ),
+        var(--bg-void);
+
+    overflow-x: hidden;
+}
+
+/* ───────────────── Main Content ───────────────── */
+
+.mainContent {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+}
+
+/* ───────────────── Animated Glows ───────────────── */
+
+.appGlow {
+    position: fixed;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.appGlowOne {
+    width: 450px;
+    height: 450px;
+
+    top: -10%;
+    left: -10%;
+
+    background: rgba(168,85,247,0.14);
+
+    animation: appFloatOne 14s ease-in-out infinite;
+}
+
+.appGlowTwo {
+    width: 500px;
+    height: 500px;
+
+    bottom: -15%;
+    right: -10%;
+
+    background: rgba(6,182,212,0.12);
+
+    animation: appFloatTwo 16s ease-in-out infinite;
+}
+
+.appGlowThree {
+    width: 320px;
+    height: 320px;
+
+    top: 40%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(244,114,182,0.08);
+
+    animation: appFloatThree 18s ease-in-out infinite;
+}
+
+/* ───────────────── Grid Overlay ───────────────── */
+
+.gridOverlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: 0.03;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.08) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black,
+            transparent 90%
+        );
+}
+
+/* ───────────────── Floating Animations ───────────────── */
+
+@keyframes appFloatOne {
+
+    0%,100% {
+        transform:
+            translateY(0px)
+            translateX(0px)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(40px)
+            translateX(20px)
+            scale(1.08);
+    }
+}
+
+@keyframes appFloatTwo {
+
+    0%,100% {
+        transform:
+            translateY(0px)
+            translateX(0px)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-40px)
+            translateX(-20px)
+            scale(1.1);
+    }
+}
+
+@keyframes appFloatThree {
+
+    0%,100% {
+        transform:
+            translateX(-50%)
+            translateY(0px)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-30px)
+            scale(1.12);
+    }
+}
+
+/* ───────────────── Global Transitions ───────────────── */
+
+button,
+input,
+textarea,
+a,
+.card,
+.glass {
+    transition:
+        all 0.35s var(--ease-expo);
+}
+
+/* ───────────────── Selection ───────────────── */
+
+::selection {
+    background: rgba(168,85,247,0.35);
+
+    color: white;
+}
+
+/* ───────────────── Responsive ───────────────── */
+
+@media (max-width: 768px) {
+
+    .appGlowOne,
+    .appGlowTwo {
+        width: 280px;
+        height: 280px;
+    }
+
+    .appGlowThree {
+        width: 220px;
+        height: 220px;
+    }
+
+    .gridOverlay {
+        background-size: 28px 28px;
+    }
+}
