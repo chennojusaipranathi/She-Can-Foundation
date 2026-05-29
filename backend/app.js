@@ -215,7 +215,6 @@ app.post("/login", (req, res, next) => {
 
 app.get(
   "/allForms",
-  isLoggedIn,
   wrapAsync(async (req, res) => {
     const forms = await Form.find({});
 
