@@ -100,7 +100,6 @@ app.use((req, res, next) => {
 
 app.post(
   "/formSubmit",
-  isLoggedIn,
   wrapAsync(async (req, res,next) => {
     const { name, email, message } = req.body;
 
