@@ -134,19 +134,38 @@ app.patch(
 );
 
 /* View Form */
-app.get(
-  "/view/:id",
-  wrapAsync(async (req, res,next) => {
+// app.get(
+//   "/view/:id",
+//   wrapAsync(async (req, res,next) => {
+//     const { id } = req.params;
+
+//     const formData = await Form.findById(id);
+
+//     res.json({
+//       success: true,
+//       data: formData,
+//     });
+//   })
+// );
+
+app.get("/view/:id", wrapAsync(async (req, res, next) => {
     const { id } = req.params;
+
+    // ✅ Validate id format first
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        return res.status(400).json({ success: false, message: "Invalid ID" });
+    }
 
     const formData = await Form.findById(id);
 
-    res.json({
-      success: true,
-      data: formData,
-    });
-  })
-);
+    // ✅ Handle not found
+    if (!formData) {
+        return res.status(404).json({ success: false, message: "Application not found" });
+    }
+
+    res.json({ success: true, data: formData });
+}));
+
 
 /* Signup */
 app.post(

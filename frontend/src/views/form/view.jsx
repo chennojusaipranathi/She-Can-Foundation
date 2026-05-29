@@ -13,7 +13,7 @@ function View() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:8080/view/${id}`,
+        axios.get(`https://she-can-foundation-1-qolc.onrender.com/view/${id}`,
             {
                 withCredentials: true
             }
@@ -26,7 +26,7 @@ function View() {
         .catch((err) => {
 
             console.log(err);
-
+            toast.error("Application not found or failed to load");
         });
 
     }, [id]);
