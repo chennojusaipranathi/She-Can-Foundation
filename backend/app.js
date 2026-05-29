@@ -40,7 +40,10 @@ main()
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+     "https://she-can-foundation-2.onrender.com"
+    ],
     credentials: true,
   })
 );
@@ -234,7 +237,9 @@ app.use((err, req, res, next) => {
   });
 });
 
+const PORT = process.env.PORT || 8080;
 
-app.listen(8080, () => {
-  console.log("Server running on port 8080");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
