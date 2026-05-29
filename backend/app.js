@@ -48,7 +48,7 @@ app.use(
   })
 );
 
-app.set("trust proxy", 1);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(flash());
@@ -66,7 +66,7 @@ store.on("error", (err) => {
   console.log("Mongo session error:", err);
 });
 
-
+app.set("trust proxy", 1);
 app.use(
   session({
     store: store,
@@ -75,8 +75,6 @@ app.use(
     saveUninitialized: false,
     cookie: {
   httpOnly: true,
-  secure: true,
-  sameSite: "none",
   maxAge: 7 * 24 * 60 * 60 * 1000,
 },
   })
