@@ -93,7 +93,7 @@ function Edit() {
   /* Fetch existing data */
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/view/${id}`, { withCredentials: true })
+      .get(`https://she-can-foundation-1-qolc.onrender.com/view/${id}`, { withCredentials: true })
       .then((res) => setFormData(res.data.data))
       .catch((err) => {
         console.error(err);
@@ -156,7 +156,7 @@ function Edit() {
 
     setSaving(true);
     axios
-      .patch(`http://localhost:8080/edit/${id}`, formData, { withCredentials: true })
+      .patch(`https://she-can-foundation-1-qolc.onrender.com/edit/${id}`, formData, { withCredentials: true })
       .then((res) => {
         toast.success(res.data.message || "Application updated!");
         navigate(`/success/${id}`);
@@ -169,7 +169,7 @@ function Edit() {
 
   if (!formData) return <EditSkeleton />;
 
-  const hasChanges = JSON.stringify(formData) !== "{}";
+  // const hasChanges = JSON.stringify(formData) !== "{}";
   const isValid = Object.keys(validate(formData)).length === 0;
 
   return (
@@ -290,7 +290,7 @@ function Edit() {
             <button
               type="submit"
               className={`ef-btn ef-btn--primary ${saving ? "ef-btn--loading" : ""} ${!isValid ? "ef-btn--disabled" : ""}`}
-              disabled={saving}
+              disabled={saving || !isValid}
             >
               {saving ? (
                 <>
