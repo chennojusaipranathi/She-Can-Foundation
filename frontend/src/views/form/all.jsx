@@ -10,7 +10,7 @@ function AllForms() {
     useEffect(() => {
 
         axios.get(
-            "http://localhost:8080/allForms",
+            "https://she-can-foundation-1-qolc.onrender.com/allForms",
             {
                 withCredentials: true
             }
