@@ -21,7 +21,7 @@ const LocalStrategy = require("passport-local");
 const session = require("express-session");
 const flash = require("connect-flash");
 
-const MongoStore = require("connect-mongo").default;
+const MongoStore = require("connect-mongo");
 
 const dbUrl = process.env.ATLASDB_URL;
 const SECRET = process.env.SECRET;
@@ -66,6 +66,7 @@ store.on("error", (err) => {
   console.log("Mongo session error:", err);
 });
 
+app.set("trust proxy", 1);
 
 app.use(
   session({
@@ -73,10 +74,12 @@ app.use(
     secret: SECRET || "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    cookie: {
+   cookie: {
   httpOnly: true,
+  secure: true,
+  sameSite: "none",
   maxAge: 7 * 24 * 60 * 60 * 1000,
-},
+}
   })
 );
 

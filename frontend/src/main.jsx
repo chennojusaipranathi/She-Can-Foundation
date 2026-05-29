@@ -1,8 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import axios from "axios";
-axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "https://she-can-foundation-1-qolc.onrender.com";
+// import axios from "axios";
+// axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = "https://she-can-foundation-1-qolc.onrender.com";
 import "./index.css";
 
 import App from "./App.jsx";
