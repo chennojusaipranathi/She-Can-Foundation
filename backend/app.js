@@ -120,7 +120,6 @@ app.post(
 /* Edit Form */
 app.patch(
   "/edit/:id",
-  isLoggedIn,
   wrapAsync(async (req, res,next) => {
     const { id } = req.params;
     const { name, email, message } = req.body;
@@ -137,7 +136,6 @@ app.patch(
 /* View Form */
 app.get(
   "/view/:id",
-  isLoggedIn,
   wrapAsync(async (req, res,next) => {
     const { id } = req.params;
 
