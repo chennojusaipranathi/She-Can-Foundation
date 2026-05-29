@@ -51,7 +51,7 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(flash());
+
 
 
 const store = MongoStore.create({
@@ -85,6 +85,8 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(flash());
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
