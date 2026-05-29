@@ -21,7 +21,7 @@ const LocalStrategy = require("passport-local");
 const session = require("express-session");
 const flash = require("connect-flash");
 
-const MongoStore = require("connect-mongo");
+const MongoStore = require("connect-mongo").default;
 
 const dbUrl = process.env.ATLASDB_URL;
 const SECRET = process.env.SECRET;
