@@ -66,7 +66,7 @@ store.on("error", (err) => {
   console.log("Mongo session error:", err);
 });
 
-app.set("trust proxy", 1);
+
 app.use(
   session({
     store: store,
